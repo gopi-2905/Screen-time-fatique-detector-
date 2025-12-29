@@ -1,0 +1,10 @@
+This document explains the parameters used for
+screen time fatigue detection.
+
+## Parameters
+- Blink Rate
+- Eye Closure Duration
+- Head Posture
+
+These parameters help in identifying user fatigue
+during long screen usage.
