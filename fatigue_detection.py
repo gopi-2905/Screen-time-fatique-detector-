@@ -3,15 +3,21 @@ import mediapipe as mp
 import time
 
 mp_face_mesh = mp.solutions.face_mesh
-face_mesh = mp_face_mesh.FaceMesh(refine_landmarks=True)
+face_mesh = mp_face_mesh.FaceMesh(
+    static_image_mode=False,
+    max_num_faces=1,
+    refine_landmarks=True,
+    min_detection_confidence=0.5,
+    min_tracking_confidence=0.5
+)
 
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
 
 blink_count = 0
 eye_closed = False
 start_time = time.time()
 
-FATIGUE_BLINK_THRESHOLD = 20   # blinks per minute
+FATIGUE_BLINK_THRESHOLD = 20
 
 while True:
     ret, frame = cap.read()
@@ -37,7 +43,7 @@ while True:
 
     if elapsed_time >= 60:
         if blink_count >= FATIGUE_BLINK_THRESHOLD:
-            status = "FATIGUE DETECTED"
+            status = "TAKE A BREAK!"
         else:
             status = "NORMAL"
 
@@ -46,11 +52,10 @@ while True:
     else:
         status = "Monitoring..."
 
-    cv2.putText(frame, f"Status: {status}",
-                (30, 50), cv2.FONT_HERSHEY_SIMPLEX,
-                1, (0, 0, 255), 2)
+    cv2.putText(frame, status, (30, 50),
+                cv2.FONT_HERSHEY_SIMPLEX, 1.2, (0, 0, 255), 3)
 
-    cv2.imshow("Fatigue Detection", frame)
+    cv2.imshow("Fatigue Alert System", frame)
 
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
