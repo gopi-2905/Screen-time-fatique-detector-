@@ -1,0 +1,10 @@
+Day 2 – Dataset / Parameter Study
+
+On Day 2, eye-related parameters are studied for fatigue detection.
+Important parameters such as blink rate, eye closure duration,
+and head posture are analyzed.
+
+Threshold values and data requirements are identified.
+These parameters will be used to detect fatigue conditions in later stages.
+Basic research is done on how eye landmarks can be extracted
+using OpenCV and MediaPipe.
