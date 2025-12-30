@@ -1,67 +1,68 @@
 # Screen Time Fatigue Detection
 
-Screen Time Fatigue Detection is a machine learning based project.
-It helps to identify user fatigue caused by long screen usage.
+Screen Time Fatigue Detection is a machine learning based project. It helps to identify user fatigue caused by long screen usage.
 The system aims to reduce eye strain and improve healthy screen habits.
 
-## Problem Statement
-People spend long hours in front of screens for study and work.
-This leads to eye fatigue, headache, and loss of concentration.
-There is a need for a system to detect screen time fatigue.
 
-## Objective
-- To analyze screen usage behavior
-- To detect fatigue using eye-related parameters
-- To alert users to take breaks
+## Problem Statement
+People spend long hours in front of screens for study, work, or gaming.This leads to eye fatigue, headaches, reduced concentration, and mental strain.There is a need for a system that automatically detects screen time fatigue and alerts users in real time.
+
+
+## Objectives
+- Detect face and eye regions using computer vision
+- Calculate eye blink rate and monitor eye closure
+- Identify fatigue based on predefined thresholds
+- Alert users to take breaks or reduce screen brightness
+- Promote healthy screen usage habits
+
 
 ## Technologies Used
 - Python
 - OpenCV
 - MediaPipe
-- Machine Learning
-- NumPy, Pandas
+- NumPy
+- screen-brightness-control
+
 
 ## Project Status
-# Day 1: Problem analysis, tool selection, and GitHub repository setup completed.
 
-# Day 2 – Dataset / Parameter Study
+### Day 1 – Problem Analysis and GitHub Setup
+- Analyzed the problem of prolonged screen usage.
+- Selected tools and libraries required for implementation.
+- Created GitHub repository and initialized project structure.
 
-On Day 2, eye-related parameters such as blink rate,
-eye closure duration, and head posture are studied.
-These parameters are analyzed to understand screen time fatigue.
-The required data and threshold values are identified.
+### Day 2 – Dataset / Parameter Study
+- Studied eye-related parameters such as blink rate, eye closure duration, and head posture.
+- Defined threshold values to identify normal vs. fatigued states:
+  - Normal blink rate: 15–20 blinks/min
+  - Eye strain threshold: >30 blinks/min
+  - Action: Reduce screen brightness or alert user
 
-# Day 3 – Face and Eye Detection
+### Day 3 – Face and Eye Detection
+- Implemented face and eye detection using OpenCV & MediaPipe Face Mesh.
+- Captured live webcam input to detect facial landmarks.
+- Prepared for eye blink and fatigue monitoring.
 
-On Day 3, basic face and eye detection is implemented
-using OpenCV Haar Cascade classifiers.
-The webcam is used to detect faces and eyes in real time.
-This step is important for extracting eye-related parameters.
+### Day 4 – Blink Rate Detection
+- Calculated eye blink count by monitoring eye closure patterns.
+- Implemented logic to detect blink events using facial landmarks.
+- This helps in measuring fatigue in real-time.
 
-# Day 4 – Blink Rate Detection
+### Day 5 – Fatigue Detection Logic
+- Monitored blink count over 1-minute intervals.
+- Classified user state as Normal or Fatigued based on thresholds.
+- Prepared alert triggers for fatigue detection.
 
-On Day 4, eye blink detection logic is implemented
-using facial landmarks from MediaPipe.
-Blink count is calculated based on eye closure detection.
-This helps in measuring user fatigue during screen usage.
+### Day 6 – Alert and Brightness Control
+- Implemented automatic brightness reduction when fatigue is detected.
+- Displayed on-screen alert messages: "FATIGUE DETECTED" or "Monitoring…"
+- Integrated `screen-brightness-control` library for OS-level brightness adjustment.
 
-# Day 5 – Fatigue Detection Logic
-
-On Day 5, fatigue detection logic is implemented
-using blink rate thresholds.
-The system classifies user state as normal or fatigued
-based on eye blink count over time.
-
-# Day 6 – Alert and Break Suggestion
-
-On Day 6, an alert system is implemented.
-When fatigue is detected, the system displays
-a break notification to the user.
-This helps in reducing prolonged screen usage.
-
-# Day 7 – Conclusion and Future Scope
-
-On Day 7, the project is finalized.
-A summary, conclusion, and future scope are documented.
-The complete system workflow is reviewed.
-
+### Day 7 – Conclusion and Future Scope
+- Finalized full system integration.
+- Verified real-time blink detection, fatigue alert, and brightness control.
+- Documented summary, conclusion, and potential improvements:
+  - ML-based fatigue prediction
+  - Mobile/web platform integration
+  - Additional parameters like head posture and screen distance
+  - Desktop or sound notifications for fatigue alerts
