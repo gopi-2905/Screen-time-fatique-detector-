@@ -3,34 +3,23 @@ import mediapipe as mp
 import time
 import screen_brightness_control as sbc
 
-# ---------------------------
-# Day 3: Face & Eye Landmarks
-# ---------------------------
 mp_face_mesh = mp.solutions.face_mesh
 face_mesh = mp_face_mesh.FaceMesh(refine_landmarks=True)
 
 cap = cv2.VideoCapture(0)
 
-# ---------------------------
-# Day 4: Blink Detection Vars
-# ---------------------------
+
 eye_closed = False
 
-# ---------------------------
-# Day 5: Blink Count & Fatigue
-# ---------------------------
+
 blink_count = 0
 start_time = time.time()
 
-# ---------------------------
-# Thresholds
-# ---------------------------
+
 BLINK_THRESHOLD = 0.004
 FATIGUE_BLINK_THRESHOLD = 30   # blinks per minute
 
-# ---------------------------
-# Day 6: Brightness Levels
-# ---------------------------
+
 NORMAL_BRIGHTNESS = 80
 LOW_BRIGHTNESS = 30
 
@@ -45,29 +34,27 @@ while True:
     if results.multi_face_landmarks:
         for face_landmarks in results.multi_face_landmarks:
 
-            # Eye landmarks (Day 3)
+            # Eye landmarks
             upper_eye = face_landmarks.landmark[159]
             lower_eye = face_landmarks.landmark[145]
 
             eye_distance = abs(upper_eye.y - lower_eye.y)
 
-            # Blink logic (Day 4)
+            # Blink logic 
             if eye_distance < BLINK_THRESHOLD:
                 eye_closed = True
             else:
                 if eye_closed:
-                    blink_count += 1   # Day 5
+                    blink_count += 1   
                 eye_closed = False
 
     elapsed_time = time.time() - start_time
 
-    # ---------------------------
-    # Day 5 + Day 6 Logic
-    # ---------------------------
+   
     if elapsed_time >= 60:
         if blink_count > FATIGUE_BLINK_THRESHOLD:
             status = "FATIGUE DETECTED - BRIGHTNESS REDUCED"
-            sbc.set_brightness(LOW_BRIGHTNESS)   # Day 6 action
+            sbc.set_brightness(LOW_BRIGHTNESS)   
         else:
             status = "NORMAL"
             sbc.set_brightness(NORMAL_BRIGHTNESS)
