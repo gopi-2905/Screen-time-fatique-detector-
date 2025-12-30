@@ -1,0 +1,18 @@
+This document explains the parameters used for screen time fatigue detection.
+
+## Parameters
+- Blink Rate
+- Eye Closure Duration
+- Head Posture
+
+#Blink Rate Thresholds for Eye Fatigue Detection
+
+## Normal Blink Rate: 15–20 blinks per minute
+
+## Eye Strain Threshold: Greater than 30 blinks per minute
+
+## System Action: Automatically reduce screen brightness to minimize eye strain.
+
+- Normal Blink Rate: 15–20 blinks/min
+- Eye Strain Blink Rate: >30 blinks/min
+- Action: Reduce screen brightness 
