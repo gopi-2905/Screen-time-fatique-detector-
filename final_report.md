@@ -1,52 +1,53 @@
-# final Report
+# Screen Time Fatigue Detection
 
 ## Abstract
-Excessive screen usage has become common in daily life due to online education and digital work environments. 
-Prolonged screen exposure leads to eye strain, reduced concentration, and mental fatigue. 
-This project aims to detect screen time fatigue using eye-related parameters such as blink rate and eye closure.
-By analyzing real-time webcam input, the system identifies fatigue conditions and alerts the user to take breaks, promoting healthier screen usage habits.
+- Excessive screen usage is common in daily life due to online education and digital work environments. 
+- Prolonged screen exposure causes eye strain, headaches, and mental fatigue. 
+- This project detects screen time fatigue using eye-related parameters such as blink rate and eye closure. 
+- By analyzing real-time webcam input, the system identifies fatigue conditions and alerts the user to take breaks, promoting healthier screen habits.
 
 ## Introduction
-In recent years, continuous screen usage has increased significantly.
-Lack of breaks during long screen sessions causes physical and mental fatigue.
-Early detection of fatigue can help prevent health issues and improve productivity.
- This project focuses on building a simple and effective fatigue detection system using computer vision techniques.
+- Continuous screen usage has increased significantly in recent years. 
+- Lack of breaks during long sessions leads to physical and mental fatigue. 
+- Early detection of fatigue can help prevent health issues and improve productivity. 
+- This project implements a simple and effective fatigue detection system using computer vision.
 
 ## Problem Statement
-People spend long hours in front of digital screens without proper breaks.
-This leads to eye fatigue, headaches, and reduced efficiency.
-There is a need for an automated system to detect screen time fatigue and alert users in real time.
+- People spend long hours in front of screens without proper breaks, causing eye strain, reduced efficiency, and fatigue. 
+- There is a need for an automated system to monitor screen time fatigue and alert users in real time.
 
 ## Objectives
-- To detect face and eye regions using computer vision
-- To calculate eye blink rate using facial landmarks
-- To identify fatigue based on predefined threshold values
-- To alert the user when fatigue is detected
+- Detect face and eye regions using computer vision
+- Calculate eye blink rate from real-time webcam input
+- Identify fatigue based on predefined thresholds
+- Alert the user when fatigue is detected
+- Reduce screen brightness automatically when fatigue occurs
 
 ## Methodology
-The system captures real-time video using a webcam.
-Face and eye regions are detected using OpenCV and MediaPipe Face Mesh.
-Eye blink count is calculated by monitoring eye closure patterns.
-Fatigue is detected based on blink rate thresholds.
-When fatigue is identified, an alert message is displayed to the user.
+1. Capture real-time video using a webcam.
+2. Detect face and eye regions using OpenCV and MediaPipe Face Mesh.
+3. Calculate blink count and monitor eye closure patterns.
+4. Determine fatigue when blink count exceeds threshold (30 blinks/minute).
+5. Display alert and reduce screen brightness automatically using OS-level APIs.
 
 ## Technologies Used
 - Python
 - OpenCV
 - MediaPipe
 - NumPy
-- Computer Vision techniques
+- screen-brightness-control
 
 ## Results
-The system successfully detects eye blinks and monitors blink rate.
-Based on the threshold values, the system classifies the user state as normal or fatigued. An alert message is displayed when fatigue conditions are met.
+- Successfully detects eye blinks and calculates blink rate.
+- Fatigue is detected based on blink count per minute.
+- Automatic brightness reduction occurs when fatigue is identified.
+- System provides live feedback with status messages ("Monitoring...", "FATIGUE DETECTED").
 
 ## Conclusion
-The Screen Time Fatigue Detection system provides a simple and effective solution to identify fatigue caused by prolonged screen usage.
-It helps users become aware of their screen habits and encourages taking regular breaks to reduce eye strain and mental fatigue.
+The Screen Time Fatigue Detection system effectively identifies eye fatigue caused by prolonged screen usage.It helps users become aware of their screen habits, encouraging regular breaks and reducing eye strain.
 
 ## Future Scope
-- Integration of machine learning models for improved accuracy
-- Addition of sound or desktop notification alerts
-- Support for mobile and web-based platforms
-- Analysis of additional parameters such as head posture and screen distance
+- Integrate machine learning models for improved accuracy.
+- Add sound or desktop notifications for fatigue alerts.
+- Extend support to mobile and web platforms.
+- Monitor additional parameters such as head posture and screen distance for better fatigue prediction.
